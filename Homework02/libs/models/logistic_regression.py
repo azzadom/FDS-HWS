@@ -36,8 +36,7 @@ class LogisticRegression:
         Returns:
             log_l: the log likelihood of the model parameters according to data x and label y.
         """
-        # Compute log likelihood using binary cross-entropy formula
-        # log_l = sum(y * log(p) + (1-y) * log(1-p))
+
         # Add small epsilon to prevent log(0) issues
         epsilon = 1e-15
         preds = np.clip(preds, epsilon, 1 - epsilon)
@@ -76,8 +75,6 @@ class LogisticRegression:
             gradient: the gradient of the log likelihood.
         """
 
-        # Compute gradient by multiplying feature matrix transposed 
-        # with the difference between true labels and predictions
         gradient = np.dot((y - preds), x) / len(y)
         
         return gradient
