@@ -15,9 +15,13 @@ class LogisticRegression:
         Returns:
             preds: the predictions of the input features.
         """
-        ##############################
-        ###     YOUR CODE HERE     ###
-        ##############################
+
+        # Compute the dot product between input features and parameters
+        z = np.dot(x, self.parameters)
+        
+        # Apply the sigmoid (logistic) function
+        preds = sigmoid(z)
+
         return preds
     
     @staticmethod
@@ -32,9 +36,14 @@ class LogisticRegression:
         Returns:
             log_l: the log likelihood of the model parameters according to data x and label y.
         """
-        ##############################
-        ###     YOUR CODE HERE     ###
-        ##############################
+        # Compute log likelihood using binary cross-entropy formula
+        # log_l = sum(y * log(p) + (1-y) * log(1-p))
+        # Add small epsilon to prevent log(0) issues
+        epsilon = 1e-15
+        preds = np.clip(preds, epsilon, 1 - epsilon)
+        
+        log_l = np.sum(y * np.log(preds) + (1 - y) * np.log(1 - preds)) / len(y)
+    
         return log_l
     
     def update_theta(self, gradient: np.array, lr : float = 0.5):
@@ -48,9 +57,9 @@ class LogisticRegression:
         Returns:
             None
         """
-        ##############################
-        ###     YOUR CODE HERE     ###
-        ##############################
+
+        self.parameters = self.parameters + lr*gradient
+
         pass
         
     @staticmethod
@@ -66,8 +75,10 @@ class LogisticRegression:
         Returns:
             gradient: the gradient of the log likelihood.
         """
-        ##############################
-        ###     YOUR CODE HERE     ###
-        ##############################
+
+        # Compute gradient by multiplying feature matrix transposed 
+        # with the difference between true labels and predictions
+        gradient = np.dot((y - preds), x) / len(y)
+        
         return gradient
 

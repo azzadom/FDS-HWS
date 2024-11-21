@@ -11,9 +11,9 @@ def sigmoid(x):
     Returns:
         g: The sigmoid of the input x
     """
-    ##############################
-    ###     YOUR CODE HERE     ###
-    ##############################    
+
+    g = 1 / (1 + np.exp(-x))
+
     return g
 
 def softmax(y):
