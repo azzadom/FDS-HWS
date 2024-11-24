@@ -73,7 +73,7 @@ class SoftmaxClassifier(LogisticRegression):
             None
         """
         # Update the parameters using gradient descent
-        self.parameters -= lr * gradient
+        self.parameters += lr * gradient
 
     @staticmethod
     def compute_gradient(X: np.array, y: np.array, preds: np.array) -> np.array:
