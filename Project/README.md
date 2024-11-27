@@ -1,7 +1,8 @@
 # Identifying Plant Disease Types Using Leaf Images
-![leaf_arrow_classification](https://github.com/user-attachments/assets/006eb298-6ea4-478c-a4f1-e486721d5ec4)
+![Uploading Test_1.jpg…]()
 
 ## 1. Task Statement:
+
 - Predict the type of plant disease affecting a leaf based on its image.
 - A multi-class classification problem with labels: "healthy," "rust," "scab," and "multiple diseases."
 
