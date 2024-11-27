@@ -1,5 +1,5 @@
 # Identifying Plant Disease Types Using Leaf Images
-![Uploading Test_1.jpg…]()
+![Uploading photo_classification.png…]()
 
 ## 1. Task Statement:
 
