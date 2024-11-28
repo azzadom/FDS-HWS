@@ -16,3 +16,5 @@ Homework02/libs/models/__pycache__/logistic_regression.cpython-312.pyc
 Homework02/libs/models/__pycache__/logistic_regression_penalized.cpython-312.pyc
 Homework02/libs/models/__pycache__/multinomial.cpython-312.pyc
 Homework02/libs/models/__pycache__/poor_cnn.cpython-312.pyc
+Homework02/data/cifar-10-python.tar.gz
+/Homework02/data
