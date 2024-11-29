@@ -15,12 +15,15 @@ class LogisticRegression:
         Returns:
             preds: the predictions of the input features.
         """
+        #START MY MODIFICATIONS HERE
 
         # Compute the dot product between input features and parameters
         z = np.dot(x, self.parameters)
         
         # Apply the sigmoid (logistic) function
         preds = sigmoid(z)
+
+        #END MY MODIFICATIONS HERE
 
         return preds
     
@@ -36,13 +39,17 @@ class LogisticRegression:
         Returns:
             log_l: the log likelihood of the model parameters according to data x and label y.
         """
+        #START MY MODIFICATIONS HERE
 
         # Add small epsilon to prevent log(0) issues
         epsilon = 1e-15
         preds = np.clip(preds, epsilon, 1 - epsilon)
         
+        # Compute the log likelihood
         log_l = np.sum(y * np.log(preds) + (1 - y) * np.log(1 - preds)) / len(y)
-    
+
+        #END MY MODIFICATIONS HERE
+
         return log_l
     
     def update_theta(self, gradient: np.array, lr : float = 0.5):
@@ -56,8 +63,12 @@ class LogisticRegression:
         Returns:
             None
         """
+        #START MY MODIFICATIONS HERE
 
+        # Update the parameters using the gradient and learning rate
         self.parameters = self.parameters + lr*gradient
+
+        #END MY MODIFICATIONS HERE
 
         pass
         
@@ -75,7 +86,12 @@ class LogisticRegression:
             gradient: the gradient of the log likelihood.
         """
 
+        #START MY MODIFICATIONS HERE
+
+        # Compute the gradient of the log likelihood
         gradient = np.dot((y - preds), x) / len(y)
+
+        #END MY MODIFICATIONS HERE
         
         return gradient
 

@@ -15,13 +15,17 @@ class SoftmaxClassifier(LogisticRegression):
             X: it's the input data matrix. The shape is (N, H)
 
         Returns:
-            scores: 
+            scores: it's the matrix containing raw scores for each sample and each class. The shape is (N, K)
         """
+        #START MY MODIFICATIONS HERE
+
         # Compute raw scores by taking the dot product of X and parameters
         scores = np.dot(X, self.parameters)
 
         # Apply softmax to convert scores to probabilities
         scores = softmax(scores)
+
+        #END MY MODIFICATIONS HERE
 
         return scores
 
@@ -35,11 +39,16 @@ class SoftmaxClassifier(LogisticRegression):
         Returns:
             preds: it's the predicted class for each sample. The shape is (N,)
         """
+        # START MY MODIFICATIONS HERE
+
         # Compute probabilities
         probs = self.predict(X)
         
         # Take the class with the highest probability
         preds = np.argmax(probs, axis=1)
+
+        # END MY MODIFICATIONS HERE
+
         return preds
 
     @staticmethod
@@ -54,12 +63,17 @@ class SoftmaxClassifier(LogisticRegression):
         Returns:
             loss: The scalar that is the mean error for each sample.
         """
+        # START MY MODIFICATIONS HERE
+
         # Add a small epsilon to prevent log(0)
         epsilon = 1e-15
         preds = np.clip(preds, epsilon, 1 - epsilon)
         
         # Compute the cross-entropy loss
         loss = -np.sum(y_onehot * np.log(preds)) / len(y_onehot)
+
+        # END MY MODIFICATIONS HERE
+
         return loss
 
     def update_theta(self, gradient: np.array, lr: float = 0.5):
@@ -73,8 +87,13 @@ class SoftmaxClassifier(LogisticRegression):
         Returns:
             None
         """
+        # START MY MODIFICATIONS HERE
+
         # Update the parameters using gradient descent
         self.parameters -= lr * gradient
+
+        # END MY MODIFICATIONS HERE
+        pass
 
     @staticmethod
     def compute_gradient(X: np.array, y: np.array, preds: np.array) -> np.array:
@@ -89,6 +108,10 @@ class SoftmaxClassifier(LogisticRegression):
         Returns:
             jacobian: A matrix with the partial derivatives of the loss. The shape is (H, K)
         """
+        # START MY MODIFICATIONS HERE
+
         # Compute the gradient as the dot product of X.T and (preds - y) divided by N
-        gradient = np.dot(X.T, (preds - y)) / len(y)
-        return gradient
+        jacobian = np.dot(X.T, (preds - y)) / len(y)
+
+        # END MY MODIFICATIONS HERE
+        return jacobian

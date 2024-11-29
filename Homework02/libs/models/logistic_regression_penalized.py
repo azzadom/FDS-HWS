@@ -17,9 +17,8 @@ class LogisticRegressionPenalized(LogisticRegression):
         Returns:
             None
         """
-        ##############################
-        ###     YOUR CODE HERE     ###
-        ##############################
+
+        #START MY MODIFICATIONS HERE
         
         # Exclude the bias term (theta[0]) from regularization
         regularization_term = self.lambda_ * self.parameters
@@ -30,4 +29,6 @@ class LogisticRegressionPenalized(LogisticRegression):
 
         # Update weights
         self.parameters += lr * penalized_gradient
+    
+        #END MY MODIFICATIONS HERE
     

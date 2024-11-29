@@ -22,6 +22,8 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
     val_loss_history = np.zeros(num_steps)
 
     for it in range(num_steps):
+        
+        #START MY MODIFICATIONS HERE
 
         # Compute predictions on training data
         preds = model.predict(x)
@@ -32,6 +34,8 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
         # Compute gradient and update parameters
         gradient = model.compute_gradient(x, y, preds)
         model.update_theta(gradient, lr)
+
+        #END MY MODIFICATIONS HERE
 
         if x_val is not None and y_val is not None:
             val_preds = model.predict(x_val)
