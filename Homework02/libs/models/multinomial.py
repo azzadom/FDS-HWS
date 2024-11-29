@@ -9,16 +9,20 @@ class SoftmaxClassifier(LogisticRegression):
 
     def predict(self, X: np.array) -> np.array:
         """
-        Function to compute the raw scores for each sample and each class.
+        Function to compute the 
 
         Args:
             X: it's the input data matrix. The shape is (N, H)
 
         Returns:
-            scores: it's the matrix containing raw scores for each sample and each class. The shape is (N, K)
+            scores: 
         """
         # Compute raw scores by taking the dot product of X and parameters
         scores = np.dot(X, self.parameters)
+
+        # Apply softmax to convert scores to probabilities
+        scores = softmax(scores)
+
         return scores
 
     def predict_labels(self, X: np.array) -> np.array:
@@ -31,11 +35,8 @@ class SoftmaxClassifier(LogisticRegression):
         Returns:
             preds: it's the predicted class for each sample. The shape is (N,)
         """
-        # Compute raw scores
-        scores = self.predict(X)
-        
-        # Apply softmax to convert scores to probabilities
-        probs = softmax(scores)
+        # Compute probabilities
+        probs = self.predict(X)
         
         # Take the class with the highest probability
         preds = np.argmax(probs, axis=1)
@@ -73,7 +74,7 @@ class SoftmaxClassifier(LogisticRegression):
             None
         """
         # Update the parameters using gradient descent
-        self.parameters += lr * gradient
+        self.parameters -= lr * gradient
 
     @staticmethod
     def compute_gradient(X: np.array, y: np.array, preds: np.array) -> np.array:

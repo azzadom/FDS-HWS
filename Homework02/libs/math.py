@@ -27,7 +27,7 @@ def softmax(y):
     Returns:
         np.ndarray: The matrix of softmax probabilities with shape (N, K).
     """
-    # Subtract the maximum value in each row for numerical stability
+    # Subtract the maximum value in each row for numerical stability and prevent overflow
     y_stable = y - np.max(y, axis=1, keepdims=True)
     
     # Compute the exponentials
