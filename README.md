@@ -2,11 +2,6 @@
 
 This repository contains homework assignments as part of the **Sapienza's Fundamentals of Data Science** course. The assignments are focused on various data science techniques and methodologies, ranging from image processing to classification and advanced deep learning applications.
 
-## Repository Structure
-
-- **[HW1](#homework-1-image-filtering-and-object-identification):** Image Filtering and Object Identification  
-- **[HW2](#homework-2-classification):** Logistic Regression, Multinomial Classification, and Convolutional Neural Networks  
-
 ## Homework 1: Image Filtering and Object Identification
 
 **Objective:**  
