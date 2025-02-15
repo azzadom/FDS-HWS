@@ -27,5 +27,5 @@ Implement classification models for binary and multi-class problems and explore 
 - Develop a multinomial classification pipeline using the Softmax Regression Model.  
 - Build and evaluate a CNN model on the CIFAR-10 dataset.  
 - Experiment with custom and pre-trained models to improve accuracy.
-- 
+
 This assignment emphasizes both traditional machine learning techniques and an introduction to deep learning concepts.
